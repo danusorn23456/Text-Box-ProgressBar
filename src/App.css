@@ -1,0 +1,136 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.o-processBar{
+  background-color: rgb(128, 211, 211);
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+}
+
+.o-processBar__bar{
+  position: relative;
+  width: 620px;
+  height: 4px;
+  background-color: gray;
+}
+
+.o-processBar__percent{
+  position: absolute;
+  top:0;
+  left:0;
+  transition: all 0.5s linear;
+  height: 100%;
+  width: 40px;
+  background-color: rgb(12, 107, 145);
+}
+
+.o-processBar__section.-date{
+  width: 100%;
+  display: flex;
+}
+
+
+.o-processBar__month{
+  font-size: 16px;
+  color: rgb(8, 77, 77);
+}
+
+.o-processBar__month:first-of-type{
+  margin-right: auto;
+}
+
+.o-processBar__month:last-of-type{
+  margin-left: auto;
+}
+
+.o-processBar__section.-billBox{
+  position: relative;
+  width: 100%;
+  background-color: red;
+}
+
+.o-processBar__bill{
+  z-index: 1;
+  display: inline-block;
+  position: absolute;
+  top: -80px;
+  width: fit-content;
+  border-radius: 4px;
+  padding: 8px 3px;
+  color:  rgb(186, 214, 240);
+  margin-bottom: 10px;
+}
+
+.o-processBar__bill.-actual{
+  background-color: rgb(93, 125, 155);
+
+  left: -18%;
+}
+
+.o-processBar__bill.-cumulative{
+  background-color: rgb(35, 92, 146);
+  transition: all 0.5s linear;
+  z-index: 2;
+  transform: translateX(-60px);
+}
+
+.o-processBar__bill.-estimated{
+  background-color: rgb(35, 92, 146);
+  right: -13%;
+}
+
+.o-processBar__bill:after{
+  z-index: 1;
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  bottom: -9px;
+  right: 10px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: rotate(180deg);
+}
+
+.o-processBar__bill.-actual:after{
+  bottom: -9px;
+  right: 10px;
+  transform: rotate(180deg);
+  border-left: 10px solid  rgb(93, 125, 155);
+}
+
+.o-processBar__bill.-cumulative:after{
+  bottom: -14px;
+  right: 43%;
+  transform: rotate(90deg);
+  border-left: 10px solid  rgb(35,92,146);
+}
+
+.o-processBar__bill.-estimated:after{
+  bottom: -9px;
+  left: 10px;
+  transform: rotate(360deg);
+  border-left: 10px solid  rgb(35, 92, 146);
+}
+
+.o-processBar__cost{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.o-processBar__currency{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.o-processBar__description{
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
